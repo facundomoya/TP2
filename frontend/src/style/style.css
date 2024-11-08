@@ -1,0 +1,88 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.links {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.containerMain {
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  margin: 15px;
+  padding: 20px;
+}
+
+.btn_class {
+  grid-column: 1 / span 2;
+  justify-self: start;
+  color: white;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.63);
+  border-radius: 5px;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.75);
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  height: 39px;
+  padding: 15px;
+  background-color: darkturquoise;
+  text-decoration: none;
+}
+
+.back{
+  background-color: red;
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.errorText{
+  text-align: start;
+  color: red;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/* Estilo base para los botones de paginación */
+#pagination button {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 3px 6px;
+  cursor: pointer;
+  margin: 0 1px;
+}
+
+
+#pagination button.active {
+  background-color: green; 
+  color: white; 
+  border: 1px solid green; 
+}
+#pagination button:hover:not(.active) {
+  background-color: #e0e0e0;
+}
+#rowsPerPage {
+  padding: 3px;
+  margin-right: 3px;
+}
+
