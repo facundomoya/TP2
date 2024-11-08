@@ -69,10 +69,10 @@ const StudentForm = ({ values = defaultValues }) => {
           <input
             className="w-100"
             {...register("inputNameValue", {
-              required: "Nombre es requerido",
+              required: "Nombre es obligatorio",
               maxLength: {
                 value: 100,
-                message: "Nombre no puede ser mayor a 100 caracteres",
+                message: "El nombre no puede ser mayor a 100 caracteres",
               },
             })}
           />

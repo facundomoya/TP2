@@ -29,7 +29,6 @@ const Table = ({ search }) => {
   };
 
   const borrado = async (id) => {
-    console.log(id);
 
     try {
       const response = await axios.put(`http://localhost:3000/api/students/${id}`);
