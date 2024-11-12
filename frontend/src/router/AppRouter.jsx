@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import NavBar from "../components/common/NavBar";
 import Index from "../pages/Index";
 import NewStudent from "../pages/NewStudent";
-import StudentModule from "../pages/StudentModule";
+import StudentList from "../pages/StudentList";
 
 const AppRouter = () => {
   return (
@@ -19,7 +19,7 @@ const AppRouter = () => {
         <Route
           exact
           path="/students"
-          element={<StudentModule></StudentModule>}
+          element={<StudentList></StudentList>}
         ></Route>
       </Route>
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Table from "../components/Table";
 
-const StudentModule = () => {
+const StudentList = () => {
   const [search, setSearch] = useState("");
 
   // Esta función se usará para actualizar el estado 'search' con lo que el usuario va escribiendo.
@@ -33,5 +33,5 @@ const StudentModule = () => {
   );
 };
 
-export default StudentModule;
+export default StudentList;
 
