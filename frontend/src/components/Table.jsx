@@ -80,7 +80,8 @@ const Table = ({ search }) => {
 
   const generatePDF = (student) => {
     const doc = new jsPDF();
-    const imgData = '../../public/images.png'; 
+    const imgData = '../../public/utn-image.png';
+    const imgSignature = '../../public/signature.jpg'; 
     doc.addImage(imgData, 'PNG', 10, 10, 50, 50);
   
     // Establecer el tipo de fuente y tamaño
@@ -98,24 +99,27 @@ const Table = ({ search }) => {
     // Datos del estudiante
     doc.text(`Nombre: ${student.firstname}`, 10, 95);
     doc.text(`Apellido: ${student.lastname}`, 10, 105);
+    doc.text(`DNI: ${student.dni}`, 10, 115);
+    doc.text(`Email: ${student.email}`, 10, 125);
   
     // Continuación del texto con fecha y lugar dentro del párrafo
     const conclusionText = `Este certificado se emite el día ${new Date().toLocaleDateString()} en Tucumán, Argentina y tiene validez para acreditar su condición de alumno regular ante cualquier entidad pública o privada que lo requiera. La firma que autentica este documento será colocada en la parte inferior del mismo.`;
     const conclusionTextLines = doc.splitTextToSize(conclusionText, 180);  // Ajustamos el ancho
-    doc.text(conclusionTextLines, 10, 120);
+    doc.text(conclusionTextLines, 10, 135);
   
     // **Firma al final**: Dejamos espacio para la firma al final del documento
     const pageHeight = doc.internal.pageSize.height;
     const signatureY = pageHeight - 30; // Ajustamos 30 unidades para dejar un margen
   
     // Agregar la firma
-    doc.text("Firma: ____________________________", 10, signatureY);
+    doc.addImage(imgSignature, 'JPG', 10, pageHeight - 50, 50, 30);
+    doc.text("_______________________", 10, signatureY);
+    doc.text("Juan Pérez - Secretario Académico", 10, signatureY + 11);
+   
   
     // Guardar el PDF con el nombre del estudiante
     doc.save(`Certificado_${student.firstname}_${student.lastname}.pdf`);
   };
-  
-  
 
   return (
     <div>
