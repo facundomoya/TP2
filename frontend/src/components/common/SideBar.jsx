@@ -7,7 +7,7 @@ const SideBar = () => {
 
   return (
     <aside>
-      <p className="my-4 font-weight-bold">Trabajo Practico 2</p>
+      <p className="my-4 font-weight-bold">Trabajo Práctico Int.</p>
       <div className="link">
         <ul>
           <li className={location.pathname === "/" ? "selected_page_main " : "hover_main"}>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Swal from "sweetalert2"; // Importar SweetAlert2
+import Swal from "sweetalert2"; 
 import jsPDF from 'jspdf';
 
 const before = '<';
@@ -60,14 +60,13 @@ const Table = ({ search }) => {
     Swal.fire({
       title: '¿Estás seguro?',
       text: "Este registro se eliminará permanentemente.",
-      icon: 'warning', // Puedes cambiar el icono si quieres
-      showCancelButton: true, // Mostrar botón de Cancelar
+      icon: 'warning', 
+      showCancelButton: true, 
       confirmButtonText: 'Sí, borrar',
       cancelButtonText: 'Cancelar',
       reverseButtons: true, 
     }).then((result) => {
       if (result.isConfirmed) {
-        // Si el usuario confirma, llamamos a la función de borrado
         borrado(id);
         Swal.fire(
           'Eliminado!',
@@ -84,40 +83,40 @@ const Table = ({ search }) => {
     const imgSignature = '../../public/signature.jpg'; 
     doc.addImage(imgData, 'PNG', 10, 10, 50, 50);
   
-    // Establecer el tipo de fuente y tamaño
+ 
     doc.setFont("Helvetica", "normal");
     doc.setFontSize(12);
   
-    // Título
+    
     doc.text("CERTIFICADO DE ALUMNO REGULAR", 60, 60);
   
-    // Texto largo (usamos splitTextToSize para evitar que se desborde)
+   
     const introText = `Por la presente se certifica que el/la estudiante con los siguientes datos personales es alumno/a regular de la materia de Programación Web en la Universidad Tecnológica Nacional - Facultad Regional Tucumán (UTN-FRT), correspondiente a la comisión 3K4.`;
-    const introTextLines = doc.splitTextToSize(introText, 180);  // 180 es el ancho máximo disponible para el texto
+    const introTextLines = doc.splitTextToSize(introText, 180);  
     doc.text(introTextLines, 10, 75);
   
-    // Datos del estudiante
+  
     doc.text(`Nombre: ${student.firstname}`, 10, 95);
     doc.text(`Apellido: ${student.lastname}`, 10, 105);
     doc.text(`DNI: ${student.dni}`, 10, 115);
     doc.text(`Email: ${student.email}`, 10, 125);
   
-    // Continuación del texto con fecha y lugar dentro del párrafo
+    
     const conclusionText = `Este certificado se emite el día ${new Date().toLocaleDateString()} en Tucumán, Argentina y tiene validez para acreditar su condición de alumno regular ante cualquier entidad pública o privada que lo requiera. La firma que autentica este documento será colocada en la parte inferior del mismo.`;
-    const conclusionTextLines = doc.splitTextToSize(conclusionText, 180);  // Ajustamos el ancho
+    const conclusionTextLines = doc.splitTextToSize(conclusionText, 180);  
     doc.text(conclusionTextLines, 10, 135);
   
-    // **Firma al final**: Dejamos espacio para la firma al final del documento
+
     const pageHeight = doc.internal.pageSize.height;
-    const signatureY = pageHeight - 30; // Ajustamos 30 unidades para dejar un margen
+    const signatureY = pageHeight - 30; 
   
-    // Agregar la firma
+   
     doc.addImage(imgSignature, 'JPG', 10, pageHeight - 50, 50, 30);
     doc.text("_______________________", 10, signatureY);
     doc.text("Juan Pérez - Secretario Académico", 10, signatureY + 11);
    
   
-    // Guardar el PDF con el nombre del estudiante
+   
     doc.save(`Certificado_${student.firstname}_${student.lastname}.pdf`);
   };
 
@@ -143,7 +142,7 @@ const Table = ({ search }) => {
                 <button
                   type="button"
                   className="btn_class back"
-                  onClick={() => handleBorrar(student.id)} // Llamamos a handleBorrar
+                  onClick={() => handleBorrar(student.id)} 
                 >
                   Borrar
                 </button>
